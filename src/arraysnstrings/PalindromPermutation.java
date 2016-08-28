@@ -1,4 +1,4 @@
-package arrays;
+package arraysnstrings;
 
 import java.util.BitSet;
 import java.util.HashMap;

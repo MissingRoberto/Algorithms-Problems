@@ -1,4 +1,4 @@
-package arrays;
+package arraysnstrings;
 
 public class URLify {
 	

@@ -1,4 +1,4 @@
-package stacks;
+package stacksnqueues;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package stacks;
+package stacksnqueues;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;

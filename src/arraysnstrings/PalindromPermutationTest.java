@@ -1,4 +1,4 @@
-package arrays;
+package arraysnstrings;
 
 import static org.junit.Assert.*;
 
