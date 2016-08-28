@@ -1,6 +1,5 @@
 package arrays;
 import java.util.BitSet;
-import java.util.Vector;
 
 public class IsUnique {
 

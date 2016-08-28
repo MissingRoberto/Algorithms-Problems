@@ -2,7 +2,7 @@ package arrays;
 
 public class URLify {
 	
-	public static void URLify(char[] url, int lenght){
+	public static void convert(char[] url, int lenght){
 		int counter = 0;
 		for(int i=lenght-1; i>0; i--){
 			if (url[i]==' '){
