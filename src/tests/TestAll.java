@@ -11,7 +11,7 @@ import stacksnqueues.*;
 @SuiteClasses({ IsUniqueTest.class, 
         PalindromPermutationTest.class, 
         URLifyTest.class, 
-        NodeTest.class, StackTest.class })
+        NodeTest.class, StackTest.class, QueueOfStacks.class })
 public class TestAll {
 
 }
