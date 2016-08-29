@@ -28,5 +28,15 @@ public class NodeTest {
         assertEquals(4,partitioned.next.next.data);
 	}
 
+	@Test
+	public void testSize() {
+		Node list = new Node(3); 
+		list.append(4);
+		list.append(2);
+		
+		assertEquals(3,list.size());
+	
+	}
+	
 
 }

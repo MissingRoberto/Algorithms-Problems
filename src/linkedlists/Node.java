@@ -1,11 +1,18 @@
 package linkedlists;
 
 public class Node {
-	Node next = null; 
-	int data; 
+	public Node next = null; 
+	public int data; 
 	
 	public Node(int value){
 		data = value; 
+	}
+	
+	public int size(){
+		if(next == null){
+			return 1;
+		}
+		return next.size()+1;
 	}
 	
 	public void append(int value){
