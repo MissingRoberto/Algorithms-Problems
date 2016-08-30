@@ -1,21 +1,17 @@
 package treesngraphs;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.Test;
 
-import linkedlists.Node;
 
 public class BinaryNodeWithLenghtTest {
 
 
 	@Test
 	public void testListOfDepths() {
-		BinaryNodeWithLenght node = new BinaryNodeWithLenght(2);
+		BinaryNodeWithLenght node = new BinaryNodeWithLenght(5);
 		assertTrue(node.checkBalance());
-		node.add(1);
+		node.add(2);
 		assertTrue(node.checkBalance());
 		node.add(7);
 		assertTrue(node.checkBalance());
@@ -23,8 +19,12 @@ public class BinaryNodeWithLenghtTest {
 		assertTrue(node.checkBalance());
 		node.add(9);
 		assertFalse(node.checkBalance());
-		node.add(10);
+		node.add(6);
 		assertFalse(node.checkBalance());
+		node.add(1);
+		assertTrue(node.checkBalance());
+		node.add(3);
+		assertTrue(node.checkBalance());
 		
 	}
 
