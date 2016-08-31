@@ -5,13 +5,18 @@ public class Philosopher implements Runnable {
 	ChopStick leftHand;
 	ChopStick rightHand;
 	String name;
-	int goHome=3;
+	int goHome=2;
 
 	public void run() {
 
 		while (goHome>0) {
-			leftHand.lock.lock();
-			rightHand.lock.lock();
+			
+			leftHand.pickUp();
+			
+			if (!rightHand.tryPickUp()){
+				leftHand.pullDown();
+				continue;
+			}
 			System.out.println(name + " is eating...");
 			try {
 				Thread.sleep(4000);
@@ -22,8 +27,8 @@ public class Philosopher implements Runnable {
 
 			System.out.println(name + " finished");
 			goHome--;
-			leftHand.lock.unlock();
-			rightHand.lock.unlock();
+			leftHand.pullDown();
+			rightHand.pullDown();
 			try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
