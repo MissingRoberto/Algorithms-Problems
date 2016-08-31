@@ -26,4 +26,10 @@ public class BitsManipulation {
 		
 		return max_length;
 	}
+	
+	public void printNextNumber(int number){
+		
+	}
+	
+	
 }

@@ -7,3 +7,4 @@ This repository contains an Eclipse project with different algorithms examples w
 - LinkedLists
 - Stacks & Queues
 - Binary Search Trees & Graphs
+- Bit manipulation
