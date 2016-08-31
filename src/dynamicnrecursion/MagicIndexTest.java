@@ -8,6 +8,7 @@ public class MagicIndexTest {
 
 	@Test
 	public void testUnique() {
+		
 		int[] array = {-1,-2,2};
 		
 		assertEquals(2,MagicIndex.findMagicIndex(array, 0, array.length-1));
