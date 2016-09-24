@@ -32,7 +32,7 @@ public class CheckOneWayTest {
     }
 	@Test
 	public void checkWithInsertionAtEnd() {
-		assertTrue(CheckOneWay.checkOneWay("plain", "plai"));
+		assertTrue(CheckOneWay.checkOneWay("plain", "plainn"));
     }
 
 	@Test
