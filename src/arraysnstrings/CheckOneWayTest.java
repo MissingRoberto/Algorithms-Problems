@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class CheckOneWayTest {
-//
-//	@Test
-//	public void checkEqual() {
-//	    assertTrue(CheckOneWay.checkOneWay("plain", "plain"));
-//    }
+
+	@Test
+	public void checkEqual() {
+	    assertTrue(CheckOneWay.checkOneWay("plain", "plain"));
+    }
 	
 	@Test
 	public void checkDiffenceSizes() {
