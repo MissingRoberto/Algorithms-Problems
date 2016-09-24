@@ -2,6 +2,7 @@ package arraysnstrings;
 
 public class CompressString {
 	
+	// Worst case O(N) in time and space 
 	public static String compress(String s){
 		
 		if (s.length() == 0){
