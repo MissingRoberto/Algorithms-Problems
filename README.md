@@ -1,5 +1,7 @@
 # Algorithms-Problems
-This repository contains an Eclipse project with different algorithms examples written in Java following TDD. 
+This repository contains an Eclipse project with different algorithms examples written in Java. 
+
+Some of the exercises contain multiple solution. 
 
 ## Topics
 
