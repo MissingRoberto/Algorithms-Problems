@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-// TODO
 public class LockNode {
 	
 	enum Status {FRESH, VISITED}
