@@ -2,7 +2,7 @@ package arraysnstrings;
 
 public class SearchSortedMatrix {
 	
-	private static boolean couldBeThere(int[] row, int value){
+	private static boolean withinRange(int[] row, int value){
 	    if (row.length == 0)
 	        return false;
 	    return value >= row[0] && value <= row[row.length-1];
@@ -14,7 +14,7 @@ public class SearchSortedMatrix {
 	    int right = matrix.length;
 	    while(left <= right){
 	        int mid = (right + left)/2;
-	        if (couldBeThere(matrix[mid],value)){
+	        if (withinRange(matrix[mid],value)){
 	            return mid;
 	        }
 	        if (value > matrix[mid][0]){
@@ -27,7 +27,6 @@ public class SearchSortedMatrix {
 	    return -1;
 
 	}
-
 
 	private static int searchValue(int[] row, int value ){
 
