@@ -1,6 +1,6 @@
 package treesngraphs;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
 import java.util.Stack;
 
@@ -85,7 +85,6 @@ public class BinaryNode {
 		}
 	}
 	
-
 	public void postTrasversalRecursive(){
 		
 		if(left != null){
@@ -98,6 +97,41 @@ public class BinaryNode {
 		visit();
 	}
 
+	public void preOrderTraversalRecursive(){
+		visit();
+		if (left != null){
+			left.preOrderTraversalRecursive();
+		}
+		
+		if (right != null){
+			right.preOrderTraversalRecursive();
+		}
+	}
+	
+	public void preOrderTraversalIterative(){
+		
+		Stack<BinaryNode> stack = new Stack<BinaryNode>();
+		HashSet<BinaryNode> visited = new HashSet<BinaryNode>();
+		
+		stack.push(this);
+		
+		while(!stack.isEmpty()){
+			BinaryNode node = stack.pop();
+			visited.add(node);
+			node.visit();
+			
+			if(node.right != null && !visited.contains(node.right)){
+				stack.push(node.right);
+			}
+			if(node.left != null && !visited.contains(node.left)){
+				stack.push(node.left);
+			}
+			
+			
+		}
+		
+		
+	}
 	public int minValue() {
 		if (left == null)
 			return value;
