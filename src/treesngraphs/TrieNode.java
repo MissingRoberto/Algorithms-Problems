@@ -10,12 +10,17 @@ public class TrieNode {
 		isWord = false;
 	}
 	
-	public boolean hasChild(char c){
-		return children[c - 'a'] != null;
+	private static int popChar(StringBuilder sb){
+		char c = sb.charAt(0); 
+		sb.deleteCharAt(0);
+		return c - 'a'; 
+	}
+	public boolean hasChild(int c){
+		return children[c] != null;
 	}
 
-	public TrieNode getChild(char c){
-		return children[c - 'a'];
+	public TrieNode getChild(int c){
+		return children[c];
 	}
 	
 	public void add(String word) {
@@ -23,11 +28,10 @@ public class TrieNode {
 			return;
 
 		StringBuilder sb = new StringBuilder(word);
-		char c = sb.charAt(0);
-		sb.deleteCharAt(0);
+		int c = popChar(sb); 
 
 		if (!hasChild(c))
-			children[c - 'a'] = new TrieNode();
+			children[c] = new TrieNode();
 			
 		TrieNode child = getChild(c);
 		
@@ -40,9 +44,10 @@ public class TrieNode {
 	public boolean contains(String word) {
 		if (word.length() == 0)
 			return false;
+		
 		StringBuilder sb = new StringBuilder(word);
-		char c = sb.charAt(0); 
-		sb.deleteCharAt(0);
+		int c = popChar(sb); 
+		
 		if (!hasChild(c)) {
 			return false;
 		} else {
@@ -59,10 +64,10 @@ public class TrieNode {
 	public boolean startsWith(String prefix) {
 		if (prefix.length() == 0)
 			return false;
+		
 		StringBuilder sb = new StringBuilder(prefix);
-		char c = sb.charAt(0); 
-		sb.deleteCharAt(0);
-
+		int c = popChar(sb); 
+		
 		if (!hasChild(c)) {
 			return false;
 		} else {
