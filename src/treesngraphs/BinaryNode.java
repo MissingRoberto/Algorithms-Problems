@@ -56,41 +56,41 @@ public class BinaryNode {
 			return true;
 		}
 	}
-	
-	public boolean contains(int value){
-		if (value == this.value){
-			return true; 
-		}else{
-			BinaryNode next =  (value > this.value) ? right : left; 	
-			return (next == null) ? false: next.contains(value);
+
+	public boolean contains(int value) {
+		if (value == this.value) {
+			return true;
+		} else {
+			BinaryNode next = (value > this.value) ? right : left;
+			return (next == null) ? false : next.contains(value);
 		}
 	}
-	
 
 	private void visit() {
 		System.out.print(value + " ");
 	}
 
-	public int findClosest(int value){
-		BinaryNode node = this; 
-		int closest = node.value; 
-		while(node != null){
+	public int findClosest(int value) {
+		BinaryNode node = this;
+		int closest = node.value;
+		while (node != null) {
 			closest = node.value;
-			if (closest == value){
-				return value; 
+			if (closest == value) {
+				return value;
 			}
-			node = (value> node.value)? node.right : node.left;		
+			node = (value > node.value) ? node.right : node.left;
 		}
-		
+
 		return closest;
 	}
+
 	public BinaryNode findAncestor(int a, int b) {
 		BinaryNode ancestor = this;
 
 		// Loop until one is found or they diverge
 		while (ancestor != null) {
 
-			if ((a < ancestor.value && b > ancestor.value) || (a == ancestor.value || b ==ancestor.value)
+			if ((a < ancestor.value && b > ancestor.value) || (a == ancestor.value || b == ancestor.value)
 					|| (a > ancestor.value && b < ancestor.value)) {
 				break;
 			}
@@ -100,7 +100,7 @@ public class BinaryNode {
 			ancestor = (a > ancestor.value) ? ancestor.right : ancestor.left;
 
 		}
-		
+
 		if (ancestor == null)
 			return null;
 		// If the values aren’t in the graph
