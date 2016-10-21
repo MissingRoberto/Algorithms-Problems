@@ -1,6 +1,5 @@
 package treesngraphs;
 
-
 import java.util.HashSet;
 import java.util.Stack;
 
@@ -58,105 +57,138 @@ public class BinaryNode {
 		}
 	}
 	
-	private void visit(){
-		System.out.print(value +" ");
+	public boolean contains(int value){
+		if (value == this.value){
+			return true; 
+		}else{
+			BinaryNode next =  (value > this.value) ? right : left; 	
+			return (next == null) ? false: next.contains(value);
+		}
 	}
 	
-	public void postTrasversalIterative(){
+
+	private void visit() {
+		System.out.print(value + " ");
+	}
+
+	public BinaryNode findAncestor(int a, int b) {
+		BinaryNode ancestor = this;
+
+		// Loop until one is found or they diverge
+		while (ancestor != null) {
+
+			if ((a < ancestor.value && b > ancestor.value) || (a == ancestor.value || b ==ancestor.value)
+					|| (a > ancestor.value && b < ancestor.value)) {
+				break;
+			}
+
+			// Update ancestor
+
+			ancestor = (a > ancestor.value) ? ancestor.right : ancestor.left;
+
+		}
 		
+		if (ancestor == null)
+			return null;
+		// If the values aren’t in the graph
+		if (!ancestor.contains(a) || !ancestor.contains(b))
+			return null;
+		return ancestor;
+	}
+
+	public void postTrasversalIterative() {
+
 		Stack<BinaryNode> stack = new Stack<BinaryNode>();
 		HashSet<BinaryNode> visited = new HashSet<BinaryNode>();
-		
+
 		stack.push(this);
-		
-		while(!stack.isEmpty()){
+
+		while (!stack.isEmpty()) {
 			BinaryNode node = stack.peek();
-			
-			if(node.left != null && !visited.contains(node.left)){
+
+			if (node.left != null && !visited.contains(node.left)) {
 				stack.push(node.left);
-			}
-			else if(node.right != null && !visited.contains(node.right)){
+			} else if (node.right != null && !visited.contains(node.right)) {
 				stack.push(node.right);
-			}else{
+			} else {
 				BinaryNode n = stack.pop();
 				visited.add(n);
 				n.visit();
 			}
 		}
 	}
-	
-	public void postTrasversalRecursive(){
-		
-		if(left != null){
+
+	public void postTrasversalRecursive() {
+
+		if (left != null) {
 			left.postTrasversalRecursive();
 		}
-		if(right != null){
+		if (right != null) {
 			right.postTrasversalRecursive();
 		}
-		
+
 		visit();
 	}
 
-	public void preOrderTraversalRecursive(){
+	public void preOrderTraversalRecursive() {
 		visit();
-		if (left != null){
+		if (left != null) {
 			left.preOrderTraversalRecursive();
 		}
-		
-		if (right != null){
+
+		if (right != null) {
 			right.preOrderTraversalRecursive();
 		}
 	}
-	
-	public void preOrderTraversalIterative(){
-		
+
+	public void preOrderTraversalIterative() {
+
 		Stack<BinaryNode> stack = new Stack<BinaryNode>();
 		stack.push(this);
-		
-		while(!stack.isEmpty()){
+
+		while (!stack.isEmpty()) {
 			BinaryNode node = stack.pop();
 			node.visit();
-			
-			if(node.right != null){
+
+			if (node.right != null) {
 				stack.push(node.right);
 			}
-			if(node.left != null){
+			if (node.left != null) {
 				stack.push(node.left);
-			}	
-			
+			}
+
 		}
-		
-		
+
 	}
-	
-	public void inOrderTraversalRecursive(){
-		if(left != null){
+
+	public void inOrderTraversalRecursive() {
+		if (left != null) {
 			left.inOrderTraversalRecursive();
 		}
 		visit();
-		
-		if(right != null){
+
+		if (right != null) {
 			right.inOrderTraversalRecursive();
 		}
 	}
-	
-	public void inOrderTraversalIterative(){
+
+	public void inOrderTraversalIterative() {
 		Stack<BinaryNode> stack = new Stack<BinaryNode>();
 		stack.push(this);
 		BinaryNode node = left;
-		while(node != null){
+		while (node != null) {
 			stack.push(node);
-			node= node.left;
+			node = node.left;
 		}
-		
-		while(!stack.isEmpty()){
-			
+
+		while (!stack.isEmpty()) {
+
 			node = stack.pop();
 			node.visit();
-			
-			if(node.right != null){	
-				node = node.right; 
-				while(node != null){
+
+			if (node.right != null) {
+				node = node.right;
+				while (node != null) {
 					stack.push(node);
 					node = node.left;
 				}

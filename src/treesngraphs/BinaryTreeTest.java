@@ -123,4 +123,21 @@ public class BinaryTreeTest {
 		node.inOrderTraversalIterative();
 		System.out.println("");
 	}
+	
+	
+	@Test
+	public void testAncestor() {
+		BinaryNode root= new BinaryNode(4);
+		root.add(2);
+		root.add(3);
+		root.add(1);
+		root.add(6);
+		root.add(7);
+		
+		assertNull(root.findAncestor(8, 9));
+		assertEquals(6,root.findAncestor(6, 7).value);
+		assertEquals(4,root.findAncestor(1, 7).value);
+		assertEquals(2,root.findAncestor(1, 3).value);
+		assertNull(root.findAncestor(6, 8));
+	}
 }
