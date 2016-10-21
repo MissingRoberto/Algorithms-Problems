@@ -71,6 +71,19 @@ public class BinaryNode {
 		System.out.print(value + " ");
 	}
 
+	public int findClosest(int value){
+		BinaryNode node = this; 
+		int closest = node.value; 
+		while(node != null){
+			closest = node.value;
+			if (closest == value){
+				return value; 
+			}
+			node = (value> node.value)? node.right : node.left;		
+		}
+		
+		return closest;
+	}
 	public BinaryNode findAncestor(int a, int b) {
 		BinaryNode ancestor = this;
 

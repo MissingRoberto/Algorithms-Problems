@@ -140,4 +140,23 @@ public class BinaryTreeTest {
 		assertEquals(2,root.findAncestor(1, 3).value);
 		assertNull(root.findAncestor(6, 8));
 	}
+	
+	
+	@Test
+	public void testFindClosest() {
+		BinaryNode root= new BinaryNode(4);
+		root.add(2);
+		root.add(3);
+		root.add(1);
+		root.add(6);
+		root.add(7);
+		
+		assertEquals(6,root.findClosest(6));
+		assertEquals(1,root.findClosest(1));
+		assertEquals(3,root.findClosest(3));
+		assertEquals(7,root.findClosest(8));
+		assertEquals(1,root.findClosest(0));
+		assertEquals(6,root.findClosest(5));
+		
+	}
 }
