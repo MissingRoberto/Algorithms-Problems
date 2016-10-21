@@ -111,27 +111,60 @@ public class BinaryNode {
 	public void preOrderTraversalIterative(){
 		
 		Stack<BinaryNode> stack = new Stack<BinaryNode>();
-		HashSet<BinaryNode> visited = new HashSet<BinaryNode>();
-		
 		stack.push(this);
 		
 		while(!stack.isEmpty()){
 			BinaryNode node = stack.pop();
-			visited.add(node);
 			node.visit();
 			
-			if(node.right != null && !visited.contains(node.right)){
+			if(node.right != null){
 				stack.push(node.right);
 			}
-			if(node.left != null && !visited.contains(node.left)){
+			if(node.left != null){
 				stack.push(node.left);
-			}
-			
+			}	
 			
 		}
 		
 		
 	}
+	
+	public void inOrderTraversalRecursive(){
+		if(left != null){
+			left.inOrderTraversalRecursive();
+		}
+		visit();
+		
+		if(right != null){
+			right.inOrderTraversalRecursive();
+		}
+	}
+	
+	public void inOrderTraversalIterative(){
+		Stack<BinaryNode> stack = new Stack<BinaryNode>();
+		stack.push(this);
+		BinaryNode node = left;
+		while(node != null){
+			stack.push(node);
+			node= node.left;
+		}
+		
+		while(!stack.isEmpty()){
+			
+			node = stack.pop();
+			node.visit();
+			
+			if(node.right != null){	
+				node = node.right; 
+				while(node != null){
+					stack.push(node);
+					node = node.left;
+				}
+			}
+
+		}
+	}
+
 	public int minValue() {
 		if (left == null)
 			return value;

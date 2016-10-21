@@ -105,4 +105,22 @@ public class BinaryTreeTest {
 		node.preOrderTraversalIterative();
 		System.out.println("");
 	}
+	
+	
+	@Test
+	public void testInOrderTraversal() {
+		BinaryNode node = new BinaryNode(4);
+		node.add(2);
+		node.add(3);
+		node.add(1);
+		node.add(6);
+		node.add(7);
+		
+		System.out.println("In-order traversal recursive: ");
+		node.inOrderTraversalRecursive();
+		System.out.println("");
+		System.out.println("In-order traversal iterative: ");
+		node.inOrderTraversalIterative();
+		System.out.println("");
+	}
 }
