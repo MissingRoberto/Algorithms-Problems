@@ -73,4 +73,15 @@ public class BinaryTreeTest {
 		assertEquals(4,node.right.left.value);
 	}
 
+	@Test
+	public void testPostTraversal() {
+		BinaryNode node = new BinaryNode(4);
+		node.add(2);
+		node.add(3);
+		node.add(1);
+		node.add(6);
+		node.add(7);
+		node.postTrasversalRecursive();
+		node.postTrasversalIterative();
+	}
 }

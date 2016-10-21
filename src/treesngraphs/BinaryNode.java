@@ -1,5 +1,9 @@
 package treesngraphs;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Stack;
+
 public class BinaryNode {
 
 	public BinaryNode left = null;
@@ -52,6 +56,46 @@ public class BinaryNode {
 			}
 			return true;
 		}
+	}
+	
+	private void visit(){
+		System.out.print(value +" ");
+	}
+	
+	public void postTrasversalIterative(){
+		
+		Stack<BinaryNode> stack = new Stack<BinaryNode>();
+		HashSet<BinaryNode> visited = new HashSet<BinaryNode>();
+		
+		stack.push(this);
+		
+		while(!stack.isEmpty()){
+			BinaryNode node = stack.peek();
+			
+			if(node.left != null && !visited.contains(node.left)){
+				stack.push(node.left);
+			}
+			else if(node.right != null && !visited.contains(node.right)){
+				stack.push(node.right);
+			}else{
+				BinaryNode n = stack.pop();
+				visited.add(n);
+				n.visit();
+			}
+		}
+	}
+	
+
+	public void postTrasversalRecursive(){
+		
+		if(left != null){
+			left.postTrasversalRecursive();
+		}
+		if(right != null){
+			right.postTrasversalRecursive();
+		}
+		
+		visit();
 	}
 
 	public int minValue() {
