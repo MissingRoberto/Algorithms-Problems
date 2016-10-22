@@ -1,5 +1,7 @@
 package linkedlists;
 
+import static org.junit.Assert.assertEquals;
+
 public class Node {
 	public Node next = null; 
 	public int data; 
@@ -60,4 +62,15 @@ public class Node {
 			leftEnd = rightHead;
 		return leftEnd; 
 	}
+	
+	public void print(){
+		Node runner = this; 
+		System.out.print("[");
+		while (runner != null){
+			System.out.print(" " + runner.data);
+			runner = runner.next;
+		}
+		System.out.println("]");
+	}
+	
 }
