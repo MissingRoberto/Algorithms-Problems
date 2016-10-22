@@ -3,74 +3,89 @@ package linkedlists;
 import static org.junit.Assert.assertEquals;
 
 public class Node {
-	public Node next = null; 
-	public int data; 
-	
-	public Node(int value){
-		data = value; 
+	public Node next = null;
+	public int data;
+
+	public Node(int value) {
+		data = value;
 	}
-	
-	public int size(){
-		if(next == null){
+
+	public int size() {
+		if (next == null) {
 			return 1;
 		}
-		return next.size()+1;
+		return next.size() + 1;
 	}
-	
-	public void append(int value){
+
+	public void append(int value) {
 		Node end = new Node(value);
-		Node n = this; 
-		while (n.next != null){
-			n = n.next; 
+		Node n = this;
+		while (n.next != null) {
+			n = n.next;
 		}
-		n.next = end; 
+		n.next = end;
 	}
-	
-	public boolean removeMiddle(){
+
+	public boolean removeMiddle() {
 		if (next == null)
-			return false; 
-		
+			return false;
+
 		data = next.data;
-		next = next.next; 
-		next.next = null; 
-				
+		next = next.next;
+		next.next = null;
+
 		return true;
 	}
-	public Node partition(int pivot){
-		Node leftEnd = null; 
-	    Node rightHead = null; 
-		Node n = this; 
-		while (n != null){
-			Node next = n.next; 
-			n.next = null;		
-			if (n.data < pivot){
+
+	public Node partition(int pivot) {
+		Node leftEnd = null;
+		Node rightHead = null;
+		Node n = this;
+		while (n != null) {
+			Node next = n.next;
+			n.next = null;
+			if (n.data < pivot) {
 				if (leftEnd != null)
-					leftEnd.next = n; 
-				leftEnd = n;		
-			}else{
+					leftEnd.next = n;
+				leftEnd = n;
+			} else {
 				if (rightHead != null)
 					rightHead.append(n.data);
 				else
 					rightHead = n;
 			}
-			n = next; 
+			n = next;
 		}
-		
+
 		if (leftEnd != null)
-			leftEnd.next = rightHead; 
-		else 
+			leftEnd.next = rightHead;
+		else
 			leftEnd = rightHead;
-		return leftEnd; 
+		return leftEnd;
 	}
-	
-	public void print(){
-		Node runner = this; 
+
+	public void removeDuplicated() {
+		Node runner = next;
+		Node previous = this;
+		while (runner != null) {
+			if (runner.data == previous.data) {
+				previous.next = runner.next;
+				runner = previous.next;
+			} else {
+				previous = runner; 
+				runner = runner.next;
+			}
+		}
+	}
+
+	public void print() {
+		Node runner = this;
 		System.out.print("[");
-		while (runner != null){
+		while (runner != null) {
 			System.out.print(" " + runner.data);
 			runner = runner.next;
 		}
 		System.out.println("]");
 	}
-	
+
 }

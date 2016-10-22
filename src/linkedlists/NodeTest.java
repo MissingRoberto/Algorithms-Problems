@@ -38,6 +38,31 @@ public class NodeTest {
 	
 	}
 	
+	@Test
+	public void testRemoveDuplicated() {
+		Node head = new Node(0); 
+		head.append(0);
+		head.append(0);
+		head.append(0);
+		head.append(1);
+		head.append(2);
+		head.append(2);
+		head.append(3);
+		head.append(4);
+		head.append(4);
+		head.removeDuplicated();
+		int i = 0;
+		
+		while (head != null){
+			assertEquals(i, head.data);
+			head = head.next;
+			i++;
+		}
+		
+		
+	}
+
+	
 
 	
 	
