@@ -89,5 +89,47 @@ public class Node {
 	}
 	
 	
+	private Node advanceTwice(){
+		if ( next == null)
+			return null;
+		else
+			return next.next;
+	}
+
+	// Use to pointers and double the second 
+	public Node findMiddle(){
+		Node middle = this; 
+		Node end = this.advanceTwice();
+		while (end != null){
+			middle = middle.next; 
+			end = end.advanceTwice(); 
+		}
+		return middle; 
+	}
+	
+
+	/* 1. Find the middle of the list
+	*  2. Reverse Half the array
+	*  3. Compare the two pieces.
+	*/
+
+
+	public boolean isPalindrome(){
+		if ( next == null)
+			return true; 
+		Node firstHalf = this; 
+		Node middle= findMiddle(); 
+		Node secondHalf = ReverseList.reverse(middle.next); 
+		
+		while(secondHalf != null ){
+			if (firstHalf.data != secondHalf.data )
+				return false;
+			firstHalf = firstHalf.next; 
+			secondHalf = secondHalf.next;
+		}
+		return true; 
+	}
+	
+	
 
 }

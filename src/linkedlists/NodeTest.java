@@ -61,6 +61,21 @@ public class NodeTest {
 		
 		
 	}
+	
+	
+	@Test
+	public void testIsPalindrome() {
+		Node head = new Node(0); 
+		head.append(0); 
+		head.append(1); 
+		head.append(0); 
+		head.append(0); 
+		assertTrue(head.isPalindrome());
+		head.append(2); 
+		assertFalse(head.isPalindrome());
+		
+		
+	}
 
 	
 

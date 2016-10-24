@@ -24,6 +24,7 @@ public class ReverseList {
 	
 	public static Node reverseRange(Node head, int n, int m){
 		
+		// Find the parent of Nth
 		
 		Node runner = head; 
 		
@@ -32,9 +33,9 @@ public class ReverseList {
 		}
 		
 	
-		Node headTail = runner; 
-		System.out.println("Eliminate beginning. HeadTail: " + headTail.data);
+		// Extract the element Nth and create some variables for the reverse sublist
 		
+		Node headTail = runner; 
 		runner = runner.next; 
 		
 		Node reverseHead = runner; 
