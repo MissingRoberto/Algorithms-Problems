@@ -6,12 +6,11 @@ import org.junit.Test;
 
 public class RomanNumberTest {
 
-
 	@Test
 	public void checkNormal() {
-	    assertEquals(18, RomanNumber.toInt("XVIII"));
-    }
-	
+		assertEquals(18, RomanNumber.toInt("XVIII"));
+	}
+
 	@Test
 	public void checkSubstraction() {
 		assertEquals(14, RomanNumber.toInt("XIV"));

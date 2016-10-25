@@ -39,4 +39,39 @@ public class Palindrome {
 
 	}
 
+	public static String longestPalindrome(String word) {
+
+		String res = "";
+		for (int i = 0; i < word.length(); i++) {
+			String evenPalindrome = evenUnfold(word, i);
+			String oddPalindrome = oddUnfold(word, i);
+			String win = (evenPalindrome.length() > oddPalindrome.length()) ? evenPalindrome : oddPalindrome;
+			res = (win.length() > res.length()) ? win : res;
+
+		}
+		return res;
+	}
+
+	public static String oddUnfold(String word, int i) {
+		int left = i - 1;
+		int right = i + 1;
+
+		while (left >= 0 && right < word.length() && word.charAt(left) == word.charAt(right)) {
+			left--;
+			right++;
+		}
+		return word.substring(left + 1, right);
+	}
+
+	public static String evenUnfold(String word, int i) {
+		int left = i;
+		int right = i + 1;
+
+		while (left >= 0 && right < word.length() && word.charAt(left) == word.charAt(right)) {
+			left--;
+			right++;
+		}
+		return word.substring(left + 1, right);
+	}
+
 }

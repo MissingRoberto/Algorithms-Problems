@@ -8,22 +8,21 @@ public class CompressStringTest {
 
 	@Test
 	public void checkEmpty() {
-	    assertEquals("",CompressString.compress(""));
-    }
-	
+		assertEquals("", CompressString.compress(""));
+	}
+
 	@Test
 	public void checkCompress() {
-	    assertEquals("a4",CompressString.compress("aaaa"));
-    }
-	
+		assertEquals("a4", CompressString.compress("aaaa"));
+	}
+
 	@Test
 	public void checkNotCompress() {
-	    assertEquals("abcd",CompressString.compress("abcd"));
-    }
-	
-	
+		assertEquals("abcd", CompressString.compress("abcd"));
+	}
+
 	@Test
 	public void checkNormalCase() {
-	    assertEquals("a2b1c4d2",CompressString.compress("aabccccdd"));
-    }
+		assertEquals("a2b1c4d2", CompressString.compress("aabccccdd"));
+	}
 }

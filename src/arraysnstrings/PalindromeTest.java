@@ -15,4 +15,13 @@ public class PalindromeTest {
 		assertTrue(Palindrome.isPalindrome("aba"));
 	}
 
+	@Test
+	public void testLongestPalindrome() {
+		assertEquals("", Palindrome.longestPalindrome(""));
+		assertEquals("aa", Palindrome.longestPalindrome("aa"));
+		assertEquals("a", Palindrome.longestPalindrome("ab"));
+		assertEquals("bbabb", Palindrome.longestPalindrome("cbbabb"));
+		assertEquals("bbbb", Palindrome.longestPalindrome("cbbbbd"));
+
+	}
 }
