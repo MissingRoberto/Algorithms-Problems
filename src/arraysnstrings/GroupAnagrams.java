@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class Anagrams {
+public class GroupAnagrams {
 
 	public static String sort(String s) {
 		char[] chars = s.toCharArray();
