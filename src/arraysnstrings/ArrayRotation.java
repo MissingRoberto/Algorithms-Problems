@@ -8,25 +8,28 @@ public class ArrayRotation {
 		array[a] = value;
 	}
 
-	private static void reverse(int[] array, int start, int end) {
-		while (start < end) {
-			swap(array, start, end);
-			start++;
-			end--;
+	
+	private static void reverse(int[] array, int start, int length){
+		int left = start;
+		int right = start + length-1;
+		while (left < right) {
+			swap(array, left, right);
+			left++; right--;
 		}
 	}
-
-	public static void rotateArrayReverse(int[] array, int K) {
-		int k = K % array.length;
+	
+	// O(2N) = O(N)
+	public static void rotateArrayReverse(int[] array, int k){
+		k = k % array.length;
 		if (array.length == 0 || k == 0) {
 			return;
 		}
-
-		reverse(array, 0, k - 2);
-		reverse(array, k - 1, array.length - 1);
-		reverse(array, 0, array.length - 1);
-
+		
+		reverse(array, 0, array.length);
+		reverse(array, 0, k);
+		reverse(array,k,array.length-k);
 	}
+
 
 	// Drawback O(N) in space
 	public static int[] rotateArray(int[] array, int K) {
